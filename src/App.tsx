@@ -145,13 +145,46 @@ function App() {
                 <iframe
                   src="https://tally.so/embed/GxrAje?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
                   width="100%"
-                  height="650"
+                  height="400"
                   frameBorder="0"
                   marginHeight={0}
                   marginWidth={0}
                   title="R&D Sprinklers Quote Form"
                   className="border-0"
                 />
+                
+                {/* Trust Signals & Process Section */}
+                <div className="bg-slate-50 p-6 border-t border-slate-100">
+                  <h4 className="text-slate-900 font-bold mb-4 flex items-center">
+                    <CheckCircle className="text-blue-700 mr-2" size={20} />
+                    What Happens Next?
+                  </h4>
+                  <div className="space-y-4">
+                    <div className="flex items-start">
+                      <div className="bg-blue-100 text-blue-700 rounded-full w-6 h-6 flex items-center justify-center font-bold text-xs mr-3 flex-shrink-0 mt-1">1</div>
+                      <p className="text-slate-600 text-sm"><span className="font-semibold">Submit Form</span>: Send us your details and property type.</p>
+                    </div>
+                    <div className="flex items-start">
+                      <div className="bg-blue-100 text-blue-700 rounded-full w-6 h-6 flex items-center justify-center font-bold text-xs mr-3 flex-shrink-0 mt-1">2</div>
+                      <p className="text-slate-600 text-sm"><span className="font-semibold">Free Survey</span>: We'll arrange a site assessment at your convenience.</p>
+                    </div>
+                    <div className="flex items-start">
+                      <div className="bg-blue-100 text-blue-700 rounded-full w-6 h-6 flex items-center justify-center font-bold text-xs mr-3 flex-shrink-0 mt-1">3</div>
+                      <p className="text-slate-600 text-sm"><span className="font-semibold">Detailed Quote</span>: Receive a tailored, no-obligation proposal.</p>
+                    </div>
+                  </div>
+                  
+                  <div className="mt-6 pt-4 border-t border-slate-200 grid grid-cols-2 gap-4">
+                    <div className="flex items-center text-[11px] text-slate-500 font-medium">
+                      <ShieldCheck className="text-green-600 mr-1.5" size={14} />
+                      GDPR COMPLIANT
+                    </div>
+                    <div className="flex items-center text-[11px] text-slate-500 font-medium">
+                      <ShieldCheck className="text-green-600 mr-1.5" size={14} />
+                      FULLY INSURED
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
