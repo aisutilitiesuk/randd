@@ -18,10 +18,18 @@ function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    // Reload Tally embeds if the script is already loaded
-    if (typeof (window as any).Tally !== 'undefined') {
-      (window as any).Tally.loadEmbeds();
-    }
+    // Tally loading logic
+    const loadTally = () => {
+      if (typeof (window as any).Tally !== 'undefined') {
+        (window as any).Tally.loadEmbeds();
+      } else {
+        document.querySelectorAll('iframe[data-tally-src]:not([src])').forEach((e: any) => {
+          e.src = e.dataset.tallySrc;
+        });
+      }
+    };
+
+    loadTally();
   }, []);
 
   const scrollToSection = (sectionId: string) => {
@@ -365,7 +373,7 @@ function App() {
                 <div className="p-0">
                   <iframe
                     data-tally-src="https://tally.so/embed/GxrAje?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
-                    loading="lazy"
+                    src="https://tally.so/embed/GxrAje?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
                     width="100%"
                     height="383"
                     frameBorder="0"
