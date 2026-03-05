@@ -61,7 +61,7 @@ function App() {
                 Projects
               </button>
               <button
-                onClick={() => scrollToSection('#home')}
+                onClick={() => scrollToSection('#quote')}
                 className="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-lg font-semibold transition-colors"
               >
                 Get a Quote
@@ -103,7 +103,7 @@ function App() {
                 Projects
               </button>
               <button
-                onClick={() => scrollToSection('#home')}
+                onClick={() => scrollToSection('#quote')}
                 className="block w-full bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
               >
                 Get a Quote
@@ -114,79 +114,42 @@ function App() {
       </nav>
 
       {/* Hero Section */}
+      {/* Hero Section */}
       <section
         id="home"
-        className="relative min-h-screen flex items-center py-12 lg:py-20 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900"
+        className="relative min-h-[90vh] flex items-center py-20 overflow-hidden"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-            {/* Left Column - Content */}
-            <div className="text-center lg:text-left">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-                Expert Fire Sprinkler Systems for Your Property
-              </h1>
-              <p className="text-xl sm:text-2xl text-blue-100 mb-8 font-medium">
-                Fully Compliant Fire Safety Solutions | BS 9251 & BS 9990 Certified
-              </p>
+        {/* Background Image with Overlay */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1920&q=80"
+            alt="Fire Sprinkler System"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-slate-900/70 backdrop-blur-[2px]"></div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
+          <div className="max-w-3xl mx-auto text-center">
+            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+              Expert Fire Sprinkler Systems for Your Property
+            </h1>
+            <p className="text-xl sm:text-2xl text-blue-100 mb-10 font-medium">
+              Fully Compliant Fire Safety Solutions | BS 9251 & BS 9990 Certified
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button
+                onClick={() => scrollToSection('#quote')}
+                className="bg-red-600 hover:bg-red-700 text-white px-10 py-5 rounded-lg font-bold text-xl transition-all shadow-lg hover:shadow-red-900/20"
+              >
+                Get a Free Quote
+              </button>
               <button
                 onClick={() => scrollToSection('#services')}
-                className="bg-transparent border-2 border-white hover:bg-white hover:text-slate-900 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all inline-block"
+                className="bg-white/10 backdrop-blur-md border-2 border-white/30 hover:bg-white/20 text-white px-10 py-5 rounded-lg font-bold text-xl transition-all"
               >
                 Explore Services
               </button>
-            </div>
-
-            {/* Right Column - Tally Form */}
-            <div className="w-full">
-              <div className="bg-white rounded-xl shadow-2xl overflow-hidden">
-                <div className="bg-red-600 px-6 py-4">
-                  <h3 className="text-white text-2xl font-bold text-center">Get Your Free Quote</h3>
-                </div>
-                <iframe
-                  data-tally-src="https://tally.so/embed/GxrAje?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
-                  loading="lazy"
-                  width="100%"
-                  height="200"
-                  frameBorder="0"
-                  marginHeight={0}
-                  marginWidth={0}
-                  title="R&D Sprinklers Quote Form"
-                  className="border-0"
-                />
-
-                {/* Trust Signals & Process Section */}
-                <div className="bg-slate-50 p-6 border-t border-slate-100">
-                  <h4 className="text-slate-900 font-bold mb-4 flex items-center">
-                    <CheckCircle className="text-blue-700 mr-2" size={20} />
-                    What Happens Next?
-                  </h4>
-                  <div className="space-y-4">
-                    <div className="flex items-start">
-                      <div className="bg-blue-100 text-blue-700 rounded-full w-6 h-6 flex items-center justify-center font-bold text-xs mr-3 flex-shrink-0 mt-1">1</div>
-                      <p className="text-slate-600 text-sm"><span className="font-semibold">Submit Form</span>: Send us your details and property type.</p>
-                    </div>
-                    <div className="flex items-start">
-                      <div className="bg-blue-100 text-blue-700 rounded-full w-6 h-6 flex items-center justify-center font-bold text-xs mr-3 flex-shrink-0 mt-1">2</div>
-                      <p className="text-slate-600 text-sm"><span className="font-semibold">Free Survey</span>: We'll arrange a site assessment at your convenience.</p>
-                    </div>
-                    <div className="flex items-start">
-                      <div className="bg-blue-100 text-blue-700 rounded-full w-6 h-6 flex items-center justify-center font-bold text-xs mr-3 flex-shrink-0 mt-1">3</div>
-                      <p className="text-slate-600 text-sm"><span className="font-semibold">Detailed Quote</span>: Receive a tailored, no-obligation proposal.</p>
-                    </div>
-                  </div>
-
-                  <div className="mt-6 pt-4 border-t border-slate-200 grid grid-cols-2 gap-4">
-                    <div className="flex items-center text-[11px] text-slate-500 font-medium">
-                      <ShieldCheck className="text-green-600 mr-1.5" size={14} />
-                      GDPR COMPLIANT
-                    </div>
-                    <div className="flex items-center text-[11px] text-slate-500 font-medium">
-                      <ShieldCheck className="text-green-600 mr-1.5" size={14} />
-                      FULLY INSURED
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -374,6 +337,83 @@ function App() {
               <p className="text-center mt-4 text-slate-700 font-semibold">
                 Industrial Installation
               </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Quote Section */}
+      <section id="quote" className="py-20 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-white rounded-xl shadow-2xl overflow-hidden">
+              <div className="bg-red-600 px-6 py-6">
+                <h3 className="text-white text-3xl font-bold text-center">Get Your Free Quote</h3>
+                <p className="text-red-100 text-center mt-2">Professional fire protection tailored to your property</p>
+              </div>
+
+              <div className="grid grid-cols-1 lg:grid-cols-2">
+                {/* Form Side */}
+                <div className="p-0">
+                  <iframe
+                    data-tally-src="https://tally.so/embed/GxrAje?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+                    loading="lazy"
+                    width="100%"
+                    height="500"
+                    frameBorder="0"
+                    marginHeight={0}
+                    marginWidth={0}
+                    title="R&D Sprinklers Quote Form"
+                    className="border-0"
+                  />
+                </div>
+
+                {/* Info Side */}
+                <div className="bg-slate-50 p-8 border-l border-slate-100">
+                  <h4 className="text-slate-900 text-xl font-bold mb-6 flex items-center">
+                    <CheckCircle className="text-blue-700 mr-2" size={24} />
+                    What Happens Next?
+                  </h4>
+                  <div className="space-y-6">
+                    <div className="flex items-start">
+                      <div className="bg-blue-100 text-blue-700 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm mr-4 flex-shrink-0 mt-1">1</div>
+                      <div>
+                        <p className="text-slate-900 font-semibold">Submit Form</p>
+                        <p className="text-slate-600 text-sm">Send us your details and property type.</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start">
+                      <div className="bg-blue-100 text-blue-700 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm mr-4 flex-shrink-0 mt-1">2</div>
+                      <div>
+                        <p className="text-slate-900 font-semibold">Free Survey</p>
+                        <p className="text-slate-600 text-sm">We'll arrange a site assessment at your convenience.</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start">
+                      <div className="bg-blue-100 text-blue-700 rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm mr-4 flex-shrink-0 mt-1">3</div>
+                      <div>
+                        <p className="text-slate-900 font-semibold">Detailed Quote</p>
+                        <p className="text-slate-600 text-sm">Receive a tailored, no-obligation proposal.</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="mt-10 pt-6 border-t border-slate-200 space-y-4">
+                    <div className="flex items-center text-sm text-slate-600 font-medium">
+                      <ShieldCheck className="text-green-600 mr-3" size={20} />
+                      GDPR COMPLIANT DATA HANDLING
+                    </div>
+                    <div className="flex items-center text-sm text-slate-600 font-medium">
+                      <ShieldCheck className="text-green-600 mr-3" size={20} />
+                      FULLY INSURED & CERTIFIED ENGINEERS
+                    </div>
+                    <div className="flex items-center text-sm text-slate-600 font-medium">
+                      <ShieldCheck className="text-green-600 mr-3" size={20} />
+                      BS 9251 & BS 9990 COMPLIANT
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
