@@ -17,6 +17,13 @@ import heroBg from './assets/hero-bg.jpg';
 function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  useEffect(() => {
+    // Reload Tally embeds if the script is already loaded
+    if (typeof (window as any).Tally !== 'undefined') {
+      (window as any).Tally.loadEmbeds();
+    }
+  }, []);
+
   const scrollToSection = (sectionId: string) => {
     const element = document.querySelector(sectionId);
     if (element) {
@@ -360,11 +367,11 @@ function App() {
                     data-tally-src="https://tally.so/embed/GxrAje?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
                     loading="lazy"
                     width="100%"
-                    height="500"
+                    height="383"
                     frameBorder="0"
                     marginHeight={0}
                     marginWidth={0}
-                    title="R&D Sprinklers Quote Form"
+                    title="Get a Free Quote"
                     className="border-0"
                   />
                 </div>
