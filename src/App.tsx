@@ -12,6 +12,7 @@ import {
   Wrench,
   CheckCircle,
 } from 'lucide-react';
+import heroBg from './assets/hero-bg.jpg';
 
 function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -122,7 +123,7 @@ function App() {
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
           <img
-            src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1920&q=80"
+            src={heroBg}
             alt="Fire Sprinkler System"
             className="w-full h-full object-cover"
           />
