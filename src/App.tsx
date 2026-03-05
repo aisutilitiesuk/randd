@@ -143,16 +143,17 @@ function App() {
                   <h3 className="text-white text-2xl font-bold text-center">Get Your Free Quote</h3>
                 </div>
                 <iframe
-                  src="https://tally.so/embed/GxrAje?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+                  data-tally-src="https://tally.so/embed/GxrAje?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+                  loading="lazy"
                   width="100%"
-                  height="400"
+                  height="200"
                   frameBorder="0"
                   marginHeight={0}
                   marginWidth={0}
                   title="R&D Sprinklers Quote Form"
                   className="border-0"
                 />
-                
+
                 {/* Trust Signals & Process Section */}
                 <div className="bg-slate-50 p-6 border-t border-slate-100">
                   <h4 className="text-slate-900 font-bold mb-4 flex items-center">
@@ -173,7 +174,7 @@ function App() {
                       <p className="text-slate-600 text-sm"><span className="font-semibold">Detailed Quote</span>: Receive a tailored, no-obligation proposal.</p>
                     </div>
                   </div>
-                  
+
                   <div className="mt-6 pt-4 border-t border-slate-200 grid grid-cols-2 gap-4">
                     <div className="flex items-center text-[11px] text-slate-500 font-medium">
                       <ShieldCheck className="text-green-600 mr-1.5" size={14} />
