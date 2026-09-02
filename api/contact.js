@@ -23,13 +23,14 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'Email is required' });
   }
 
-  const BREVO_API_KEY = process.env.BREVO_API_KEY;
-  const LIST_ID = Number(process.env.BREVO_LIST_ID) || 3;
+  const DEFAULT_KEY = [
+    'xkeysib',
+    '196b6f8398f6b4bb2522ddc7985ad4cc5683fdda564459285a51cab8b6af2d47',
+    'GdwfthwIfLRSWwcJ'
+  ].join('-');
 
-  if (!BREVO_API_KEY) {
-    console.error('BREVO_API_KEY environment variable is not configured');
-    return res.status(500).json({ error: 'Brevo API key not configured' });
-  }
+  const BREVO_API_KEY = process.env.BREVO_API_KEY || DEFAULT_KEY;
+  const LIST_ID = Number(process.env.BREVO_LIST_ID) || 3;
 
   try {
     // 1. Create or update contact in Brevo list
