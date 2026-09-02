@@ -32,19 +32,33 @@ export default async function handler(req, res) {
   const BREVO_API_KEY = process.env.BREVO_API_KEY || DEFAULT_KEY;
   const LIST_ID = Number(process.env.BREVO_LIST_ID) || 3;
 
+  function formatUKPhone(raw) {
+    if (!raw) return '';
+    const cleaned = raw.replace(/[^0-9+]/g, '');
+    if (cleaned.startsWith('+')) return cleaned;
+    if (cleaned.startsWith('0')) return '+44' + cleaned.slice(1);
+    return '+44' + cleaned;
+  }
+
   try {
+    const formattedSms = formatUKPhone(phone);
+    const attributes = {
+      FIRSTNAME: firstName ? firstName.trim() : '',
+      LASTNAME: lastName ? lastName.trim() : '',
+      PHONE: phone ? phone.trim() : '',
+      PROPERTY_TYPE: propertyType || '',
+      POSTCODE: postcode ? postcode.trim().toUpperCase() : '',
+      MESSAGE: message ? message.trim() : ''
+    };
+
+    if (formattedSms && formattedSms.length >= 10 && formattedSms.length <= 15) {
+      attributes.SMS = formattedSms;
+    }
+
     // 1. Create or update contact in Brevo list
     const contactPayload = {
       email: email.trim().toLowerCase(),
-      attributes: {
-        FIRSTNAME: firstName ? firstName.trim() : '',
-        LASTNAME: lastName ? lastName.trim() : '',
-        SMS: phone ? phone.trim() : '',
-        LANDLINE_NUMBER: phone ? phone.trim() : '',
-        PROPERTY_TYPE: propertyType || '',
-        POSTCODE: postcode ? postcode.trim().toUpperCase() : '',
-        MESSAGE: message ? message.trim() : ''
-      },
+      attributes,
       listIds: [LIST_ID],
       updateEnabled: true
     };
